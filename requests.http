@@ -1,0 +1,68 @@
+
+### POST MENU
+POST http://localhost:3000/api/menus HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Contact us",
+    "link": "/contact-us"
+}
+
+### GET MENU
+GET http://localhost:3000/api/menus HTTP/1.1
+
+### POST ABOUT
+POST http://localhost:3000/api/about HTTP/1.1
+Content-Type: application/json
+
+{
+    "image": "abgaragedoors.png",
+    "title": "AB Garage Doors",
+    "description": "At AB Garage Doors, we are dedicated to providing quality garage doors solutions for customers throughout New Jersy. Our team of experts has years of experience in the industry, allowing us to offer our customers top-notch service and durable products. We take pride in offering a wide variety of garage doors and opener systems from leading brands in the industry. Whether you need a garage door for your home or bussiness, our team is ready to help you find the perfect solution for your needs. At AB Garage Doors, we strive to provide exceptional curtomer service. We understand that time is of the essence, which is why we are always available to answer your question and solve any problems that may arise. Additionally, we offer competitive pricing and warranty on all our products and services. If you're looking for a reliable and durable garage doors in New Jersey, look no further than AB Garage Doors. Contact us today to learn more about our products and services."
+}
+
+### POST WORK
+POST http://localhost:3000/api/work HTTP/1.1
+Content-Type: application/json
+
+{
+    "image": "work1.png",
+    "title": "Work 1",
+    "description": "This work was made for a client he wants change his older garage door",
+    "owner": "Joe Done",
+    "qualification": 5,
+    "place": "Union"
+}
+
+### POST TESTIMONIAL
+POST http://localhost:3000/api/testimonial HTTP/1.1
+Content-Type: application/json
+
+{
+    "image": "testimonial3.png",
+    "name": "Diego Cabrera",
+    "message": "AB Garage Doors Company exceeded my expectations with their exceptional customer service. They were easy to communicate with and provided clear and thorough explanations of the work that needed to be done. They even went above and beyond by offering maintenance tips to keep my garage door in top shape. I am truly grateful for their outstanding service.",
+    "city": "Jersey Garden",
+    "country": "United States"
+}
+
+### POST CONTACTS 
+POST http://localhost:3000/api/contact HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "AB Garage Doors",
+    "email": ["alvarado_rodrigo@hotmail.com", "abgaragedoors@abgaragedoors.com"],
+    "phone": ["+19089438691", "+12013620058"]
+}
+
+### POST SERVICE
+POST http://localhost:3000/api/service HTTP/1.1
+Content-Type: application/json
+
+{
+    "image": "consulting.png",
+    "name": "Consulting",
+    "description": "AB Garage Doors also offers consulting services for those looking to replace or upgrade their garage door. Our experts can help you choose the right door for your needs and budget, and we can provide guidance on everything from material selection to insulation options. We can also offer advice on maintenance and upkeep to ensure your garage door stays in top condition for years to come."
+}
+
