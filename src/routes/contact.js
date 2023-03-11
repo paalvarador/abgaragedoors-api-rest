@@ -12,4 +12,11 @@ router.post("/contact", (req, res) => {
         .catch((data) => res.json({ message: error }));
 });
 
+// get All contacts
+router.get("/contact/all", (req, res) => {
+    contactSchema.find()
+    .then((data) => {res.json(data)})
+    .catch((error) => res.json({ message: error }));
+})
+
 module.exports = router;
