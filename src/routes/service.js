@@ -13,4 +13,12 @@ router.post("/service", (req, res) => {
         .catch((data) => res.json({ message: error }));
 });
 
+// get all services
+router.get("/service/all", (req, res) => {
+    serviceSchema
+        .find()
+        .then((data) => res.json(data))
+        .catch((error) => res.json({message: error}));
+})
+
 module.exports = router;

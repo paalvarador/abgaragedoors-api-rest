@@ -13,4 +13,9 @@ router.post("/about", (req, res) => {
         .catch((error) => res.json({ message: error }));
 });
 
+// get all about
+router.get("/about/all", (req, res) => {
+    aboutSchema.find().then((data) => res.json(data)).catch((error) => res.json({message: error}))
+})
+
 module.exports = router;

@@ -12,4 +12,12 @@ router.post("/testimonial", (req, res) => {
         .catch((error) => res.json({ message: error }));
 });
 
+// get all testimonial
+router.get("/testimonial/all", (req, res) => {
+    testimonialSchema
+        .find()
+        .then((data) => res.json(data))
+        .catch((error) => res.json({message: error}));
+});
+
 module.exports = router;

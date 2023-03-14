@@ -12,4 +12,9 @@ router.post("/work", (req, res) => {
         .catch((error) => res.json({ message: error }));
 });
 
+// get All works
+router.get("/work/all", (req, res) => {
+    workSchema.find().then((data) => res.json(data)).catch((error) => res.json({message: error}));
+});
+
 module.exports = router;
