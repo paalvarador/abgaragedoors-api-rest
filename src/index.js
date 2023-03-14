@@ -1,5 +1,4 @@
 require("dotenv").config();
-
 const express = require("express");
 const mongoose = require("mongoose");
 const menuRoutes = require('./routes/menu');
@@ -71,7 +70,7 @@ app.use(index);
 // Mongo DB Connect
 const DB_URI = process.env.DB_URI;
 mongoose
-    .connect(DB_URI)
+    .connect("mongodb+srv://abgarage:bRqJZTgFTvKIPhHH@cluster0.nkcsibf.mongodb.net/?retryWrites=true&w=majority")
     .then(() => console.log("Conectado a la base de datos Mongo"))
     .catch((error) => console.error(error));
 
