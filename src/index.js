@@ -2,14 +2,14 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const menuRoutes = require('./routes/menu');
-const aboutRoutesApi = require('./routes/about-api');
-const aboutRoutesBe = require('./routes/about-be');
+const aboutRoutes = require('./routes/about');
 const workRoutes = require('./routes/work');
 const testimonialRoutes = require('./routes/testimonial');
 const contactRoutes = require('./routes/contact');
 const serviceRoutes = require('./routes/service');
 const socialRoutes = require('./routes/social');
 const homeRoutes = require('./routes/home');
+const emailRoutes = require("./routes/email")
 const cors = require("cors");
 const path = require("path");
 const morgan = require("morgan");
@@ -50,19 +50,16 @@ app.use(multer({
     storage: storage
 }).single('image'));
 
-// Routes for API-REST
+// Routes
 app.use('/api', menuRoutes);
-app.use('/api', aboutRoutesApi);
+app.use('/api', aboutRoutes);
 app.use('/api', workRoutes);
 app.use('/api', testimonialRoutes);
 app.use('/api', contactRoutes);
 app.use('/api', serviceRoutes);
 app.use('/api', socialRoutes);
 app.use('/api', homeRoutes);
-
-// Routes for Back-end
-app.use('/', aboutRoutesBe);
-
+app.use('/api', emailRoutes)
 
 // Routes: Rutas de la Aplicacion
 app.use(index);
