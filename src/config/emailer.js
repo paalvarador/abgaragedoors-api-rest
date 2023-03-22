@@ -19,7 +19,7 @@ const sendMail = async (email) => {
 
     const transporter = createTransport()
     const info = await transporter.sendMail({
-        from: email.from, // sender address
+        from: "website@abgaragedoors.com", // sender address
         to: email.to, // list of receivers
         subject: "New Message to AB Garage Doors from " + email.name + " <" + email.from + ">", // Subject line
         html: email.message, // html body
