@@ -16,15 +16,15 @@ const createTransport = () => {
 }
 
 const sendMail = async (email) => {
-     
-     const transporter = createTransport()
-     const info = await transporter.sendMail({
+
+    const transporter = createTransport()
+    const info = await transporter.sendMail({
         from: email.from, // sender address
         to: email.to, // list of receivers
-        subject: "New Message to AB Garage Doors from " + email.name, // Subject line
+        subject: "New Message to AB Garage Doors from " + email.name + " <" + email.from + ">", // Subject line
         html: email.message, // html body
     });
-    
+
     console.log("Message sent: %s", info.messageId);
 
     return

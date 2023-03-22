@@ -112,8 +112,8 @@ Content-Type: application/json
 {
     "name": "Pablo Antonio Alvarado",
     "from": "rodrigo@abgaragedoors.com",
-    "to": "paalvarador@abgaragedoors.com",
-    "Subject": "New Message to AB Garage",
+    "to": "rodrigo@abgaragedoors.com",
+    "Subject": "Message from AB Garage Website",
     "message": "<h1>Pablo Alvarado Quote</h1><p>Hi AB Garage Doors. My name is <strong>Pablo Alvarado</strong> and I'm looking for a Quotation</p>"
 }
 
