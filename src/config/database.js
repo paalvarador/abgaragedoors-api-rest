@@ -1,5 +1,4 @@
 const mongoose = require("mongoose")
-require("dotenv").config()
 
 mongoose
     .connect("mongodb+srv://abgarage:bRqJZTgFTvKIPhHH@cluster0.nkcsibf.mongodb.net/?retryWrites=true&w=majority")

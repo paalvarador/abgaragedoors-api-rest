@@ -1,36 +1,25 @@
-require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
-const connectiondb = require('./config/database')
-const menuRoutes = require('./routes/menu');
-const aboutRoutes = require('./routes/about');
-const workRoutes = require('./routes/work');
-const testimonialRoutes = require('./routes/testimonial');
-const contactRoutes = require('./routes/contact');
-const serviceRoutes = require('./routes/service');
-const socialRoutes = require('./routes/social');
-const homeRoutes = require('./routes/home');
-const emailRoutes = require("./routes/email")
+const connectiondb = require('./src/config/database')
+const menuRoutes = require('./src/routes/menu');
+const aboutRoutes = require('./src/routes/about');
+const workRoutes = require('./src/routes/work');
+const testimonialRoutes = require('./src/routes/testimonial');
+const contactRoutes = require('./src/routes/contact');
+const serviceRoutes = require('./src/routes/service');
+const socialRoutes = require('./src/routes/social');
+const homeRoutes = require('./src/routes/home');
+const emailRoutes = require("./src/routes/email")
+const index = require("./src/routes/index");
 const cors = require("cors");
 const path = require("path");
 const morgan = require("morgan");
-const multer = require("multer");
-const index = require("./routes/index");
 const crypto = require("crypto");
 
 const app = express();
 
-const storage = multer.diskStorage({
-    destination: path.join(__dirname, 'public/img/uploads'),
-    filename: (req, file, cb, filename) => {
-        cb(null, crypto.randomUUID() + path.extname(file.originalname));
-    }
-});
-
 // Settings 
 const port = process.env.PORT || 3000;
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
 
 /** CORS setting with OPTIONS pre-flight handling */
 app.use(function(req, res, next){
@@ -42,16 +31,8 @@ app.use(function(req, res, next){
     else next();
 });
 
-// middleware
-app.use(morgan('dev'));
-app.use(express.json());
-app.use(express.urlencoded({extended: false}));
-
-app.use(multer({
-    storage: storage
-}).single('image'));
-
-// Routes
+// Routes: Rutas de la Aplicacion
+app.use('/', index);
 app.use('/api', menuRoutes);
 app.use('/api', aboutRoutes);
 app.use('/api', workRoutes);
@@ -61,9 +42,6 @@ app.use('/api', serviceRoutes);
 app.use('/api', socialRoutes);
 app.use('/api', homeRoutes);
 app.use('/api', emailRoutes)
-
-// Routes: Rutas de la Aplicacion
-app.use(index);
 
 //Mongo DB Connect
 const DB_URI = process.env.DB_URI;
