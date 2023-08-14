@@ -3,6 +3,7 @@ const workSchema = require("../models/work")
 
 const router = express.Router()
 
+
 // create work
 router.post("/work/post", (req, res) => {
     const work = workSchema(req.body)
@@ -12,6 +13,7 @@ router.post("/work/post", (req, res) => {
     work.owner = req.body.owner
     work.qualification = req.body.qualification
     work.place = req.body.place
+    work.date = req.body.date
 
     work
         .save()

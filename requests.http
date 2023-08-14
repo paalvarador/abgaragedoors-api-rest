@@ -29,12 +29,13 @@ POST http://localhost:3000/api/work HTTP/1.1
 Content-Type: application/json
 
 {
-    "image": "work1.png",
-    "title": "Work 1",
-    "description": "This work was made for a client he wants change his older garage door",
+    "image": "work44.png",
+    "title": "Work 44",
+    "description": "Work44",
     "owner": "Joe Done",
     "qualification": 5,
-    "place": "Union"
+    "place": "Union",
+    "date": "2023-05-19"
 }
 
 ### GET ALL WORK

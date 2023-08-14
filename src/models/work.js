@@ -23,6 +23,10 @@ const workSchema = mongoose.Schema({
     place: {
         type: String,
         required: true
+    },
+    date: {
+        type: Date,
+        required: true
     }
 });
 

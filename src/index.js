@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
+const connectiondb = require('./config/database')
 const menuRoutes = require('./routes/menu');
 const aboutRoutes = require('./routes/about');
 const workRoutes = require('./routes/work');
@@ -64,7 +65,7 @@ app.use('/api', emailRoutes)
 // Routes: Rutas de la Aplicacion
 app.use(index);
 
-// Mongo DB Connect
+//Mongo DB Connect
 const DB_URI = process.env.DB_URI;
 mongoose
     .connect("mongodb+srv://abgarage:bRqJZTgFTvKIPhHH@cluster0.nkcsibf.mongodb.net/?retryWrites=true&w=majority")
