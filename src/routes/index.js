@@ -6,7 +6,7 @@ const router = Router();
 // Main server router (http://localhost/port)
 router.get('/', (req, res) => {
     //res.render("index");
-    res.send("index")
+    res.send("<h3>Server Listening</h3>")
 });
 
 // Upload Images to About 
