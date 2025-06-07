@@ -9,7 +9,14 @@ const router = express.Router();
 // create testimonial
 router.post("/testimonial", upload.none(), (req, res) => {
   console.log(`req.body: ${JSON.stringify(req.body)}`);
-  const testimonial = testimonialSchema(req.body);
+  const data = {
+    ...req.body,
+    rating: Number(req.body.rating),
+  };
+
+  console.log(`data: ${JSON.data}`);
+
+  const testimonial = testimonialSchema(data);
   console.log(`testimonial: ${JSON.stringify(testimonial)}`);
   testimonial
     .save()

@@ -31,6 +31,10 @@ const testimonialSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    state: {
+      type: Boolean,
+      required: true,
+    },
   },
   { timestamps: true }
 );
