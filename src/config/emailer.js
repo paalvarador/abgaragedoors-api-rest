@@ -1,34 +1,35 @@
-const nodemailer = require("nodemailer")
+const nodemailer = require("nodemailer");
 
 const createTransport = () => {
+  const transporter = nodemailer.createTransport({
+    host: "mail.abgaragedoors.com",
+    port: 465,
+    auth: {
+      user: "rodrigo@abgaragedoors.com", // generated ethereal user
+      pass: "Elias162016g", // generated ethereal password
+    },
+  });
 
-    const transporter = nodemailer.createTransport({
-        host: "mail.abgaragedoors.com",
-        port: 465,
-        auth: {
-            user: "rodrigo@abgaragedoors.com", // generated ethereal user
-            pass: "Elias162016g", // generated ethereal password
-        },
-    });
-
-    return transporter
-
-}
+  return transporter;
+};
 
 const sendMail = async (email) => {
+  const transporter = createTransport();
+  const info = await transporter.sendMail({
+    from: "website@abgaragedoors.com", // sender address
+    to: "paalvarador@gmail.com", // list of receivers
+    subject:
+      "New Message to AB Garage Doors from " +
+      email.name +
+      " <" +
+      email.from +
+      ">", // Subject line
+    html: email.message, // html body
+  });
 
-    const transporter = createTransport()
-    const info = await transporter.sendMail({
-        from: "website@abgaragedoors.com", // sender address
-        to: email.to, // list of receivers
-        subject: "New Message to AB Garage Doors from " + email.name + " <" + email.from + ">", // Subject line
-        html: email.message, // html body
-    });
+  console.log("Message sent: %s", info.messageId);
 
-    console.log("Message sent: %s", info.messageId);
+  return;
+};
 
-    return
-}
-
-
-exports.sendMail = (email) => sendMail(email)
+exports.sendMail = (email) => sendMail(email);

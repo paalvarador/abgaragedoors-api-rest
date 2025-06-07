@@ -16,7 +16,7 @@ router.post("/email/send", (req, res) => {
             // 2. If email saved at DB, then send email
             emailer.sendMail(data)
         })
-        .catch((data) => res.json({ message: error }))
+        .catch((error) => res.json({ message: error.message }))
 })
 
 module.exports = router
