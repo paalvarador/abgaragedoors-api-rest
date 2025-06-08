@@ -27,7 +27,7 @@ router.post("/testimonial", upload.none(), (req, res) => {
 // get all testimonial
 router.get("/testimonial/all", (req, res) => {
   testimonialSchema
-    .find()
+    .find({ state: true })
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
